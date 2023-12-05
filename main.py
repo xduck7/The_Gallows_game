@@ -7,7 +7,7 @@ import rules
 def main(language):
 
     player = human.Player(lang=language)
-    print(player.word)
+    #print(player.word) #для отладки
 
 
     correct_word = player.word
