@@ -7,6 +7,7 @@ import rules
 def main(language):
 
     player = human.Player(lang=language)
+    help_counter = 0
     #print(player.word) #для отладки
 
 
@@ -23,6 +24,11 @@ def main(language):
             print("\nWIN!!!")
             break
         else:
+            if player.need_help() and help_counter == 0:
+                player.help(player.health, displayed_word)
+                help_counter += 1
+                continue
+            
             entered_letter = input("Введите букву: ").lower()
             #print(entered_letter) #для отладки
             if entered_letter == player.word:

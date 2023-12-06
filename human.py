@@ -69,6 +69,16 @@ class Player:
     def isLife(self):
         return self.health > 0
     
+    def need_help(self):
+        return self.health < 3
+    
+    def help(self,health, displayed_word):
+        ans = input("Желаете использовать подсказку? y / n ")
+        if (ans == "y"):
+            id = rn.randint(0, len(displayed_word))
+            displayed_word[id] = self.word[id]
+
+    
     def __init__(self, lang):
         self.health = 5
         self.lang = lang
